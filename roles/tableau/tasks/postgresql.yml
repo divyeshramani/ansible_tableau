@@ -1,6 +1,11 @@
 ---
 
-- name: TABLEAU POSTGRES | Install Postgresql Tableau ODBC
+- name: TABLEAU POSTGRES | Install Postgresql Tableau ODBC Debian
   apt:
     deb: "{{ tableau_postgresql_odbc_deb }}"
   when: ansible_os_family == "Debian"
+
+- name: TABLEAU POSTGRES | Install Postgressql Tableau ODBC RedHat
+  yum:
+    name: "{{ tableau_postgresql_odbc_rpm }}"
+  when: ansible_os_family == "RedHat"
