@@ -8,7 +8,7 @@
 
 - name: TABLEAU INSTALL | Install on RedHat environment (This may take some time)
   yum:
-    name: "{{ tableau_url_rpm }}"
+    name: "/tmp/{{ tableau_rpm_package }}"
     state: present
   when: ansible_os_family == 'RedHat'
 

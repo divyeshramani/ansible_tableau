@@ -9,7 +9,7 @@ SUPPORTED_OS = {
 }
 
 # Vagrant instance management
-$os                     = "ubuntu"
+$os                     = "centos"
 $num_instances          = 1
 $instance_name_prefix   = "tableau"
 $vm_memory              = 8192
@@ -62,6 +62,7 @@ Vagrant.configure("2") do |config|
 
       # Provision
       config.vm.provision "shell", path: "provision.sh"
+      config.vm.provision "file", source: "./roles/tableau/files/tableau-server-2019-1-1.x86_64.rpm", destination: "/tmp/tableau-server-2019-1-1.x86_64.rpm"
       # config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "/home/vagrant/.ssh/authorized_keys"
 
       # Only execute the Ansible provisioner when all the machines are up and ready

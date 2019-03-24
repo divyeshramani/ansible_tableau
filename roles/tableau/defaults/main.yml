@@ -5,8 +5,8 @@
 ###
 
 # Version
-tableau_version_major: 2018
-tableau_version_minor: 3
+tableau_version_major: 2019
+tableau_version_minor: 1
 tableau_version_patch: 1
 
 # Debian
@@ -14,7 +14,7 @@ tableau_deb_package: "tableau-server-{{ tableau_version_major }}-{{ tableau_vers
 tableau_url_deb: "https://downloads.tableau.com/esdalt/{{ tableau_version_major }}.{{ tableau_version_minor }}.{{ tableau_version_patch }}/{{ tableau_deb_package }}"
 
 # RedHat
-tableau_rpm_package: "tableau-server-{{ tableau_version_major }}-{{ tableau_version_minor }}-{{ tableau_version_patch }}_x86_64.rpm"
+tableau_rpm_package: "tableau-server-{{ tableau_version_major }}-{{ tableau_version_minor }}-{{ tableau_version_patch }}.x86_64.rpm"
 tableau_url_rpm: "https://downloads.tableau.com/esdalt/{{ tableau_version_major }}.{{ tableau_version_minor }}.{{ tableau_version_patch }}/{{ tableau_rpm_package }}"
 
 # Postgres
