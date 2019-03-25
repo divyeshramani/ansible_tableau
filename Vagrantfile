@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
 
   # Configure box
   config.vm.box         = $box
-
+  config.vm.network "forwarded_port", guest: 8850, host: 8850
   (1..$num_instances).each do |i|
 
     config.vm.provider "virtualbox" do |vb|
@@ -63,6 +63,7 @@ Vagrant.configure("2") do |config|
       # Provision
       config.vm.provision "shell", path: "provision.sh"
       config.vm.provision "file", source: "./roles/tableau/files/tableau-server-2019-1-1.x86_64.rpm", destination: "/tmp/tableau-server-2019-1-1.x86_64.rpm"
+      config.vm.provision "file", source: "./roles/tableau/files/tableau-server-2019-1-1_amd64.deb", destination: "/tmp/tableau-server-2019-1-1_amd64.deb"
       # config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "/home/vagrant/.ssh/authorized_keys"
 
       # Only execute the Ansible provisioner when all the machines are up and ready

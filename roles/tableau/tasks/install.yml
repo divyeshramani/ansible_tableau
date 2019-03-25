@@ -2,7 +2,7 @@
 
 - name: TABLEAU INSTALL | Install on Debian environment (This may take some time)
   apt:
-    deb: "{{ tableau_url_deb }}"
+    deb: "/tmp/{{ tableau_deb_package }}"
     state: present
   when: ansible_os_family == 'Debian'
 
