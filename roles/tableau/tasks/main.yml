@@ -1,5 +1,10 @@
 ---
-
+- name: TABLEAU INSTALL | create root 
+  file:
+    path: "{{ root_dir }}"
+    state: directory
+    mode: 0755
+    
 - name: TABLEAU | Ensure if sudoers is configured correctly
   lineinfile:
     path: /etc/sudoers
