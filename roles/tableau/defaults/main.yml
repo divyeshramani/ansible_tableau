@@ -31,6 +31,7 @@ tableau_password: azertyuiop
 tableau_password_encrypted: "$6$26TGUbrC2UhUN7TC$6yxWcTb4tgJuuR4SQpbV7yEVpSSR092.lKp0kqomaB/MgVmjg7SAfnx/lmkNQytSkWUsxNbNdjYxGyvJX5olE."
 
 # Configuration
+root_dir: /dev/sdb
 tableau_data_dir: /var/opt/tableau/tableau_server
 tsm_packages: "/opt/tableau/tableau_server/packages"
 tsm_data_dir: /opt/tableau/tsm
@@ -60,5 +61,5 @@ tabcmd_admin_password: DhnfIZen3dj3d9s2
 # Ssl
 tableau_setup_ssl_helper: false
 tableau_ssl_certs_dir: "/etc/tableaussl/"
-tableau_ssl_key_ext: ".key.pem"
+
 tableau_ssl_key_ext: ".crt"

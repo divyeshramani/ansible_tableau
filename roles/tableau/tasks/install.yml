@@ -1,4 +1,9 @@
 ---
+- name: TABLEAU INSTALL | create root 
+  file:
+    path: "{{ root_dir }}"
+    state: directory
+    mode: 0755
 
 - name: TABLEAU INSTALL | Install on Debian environment (This may take some time)
   apt:
@@ -10,6 +15,7 @@
   yum:
     name: "/tmp/{{ tableau_rpm_package }}"
     state: present
+    installroot: "{{ root_dir }}"
   when: ansible_os_family == 'RedHat'
 
 - name: TABLEAU INSTALL | Get Tableau TSM version
@@ -26,7 +32,7 @@
   when: tableau_fix_systemd_unit
 
 - name: TABLEAU INSTALL | Initialize Tableau TSM
-  command: ./initialize-tsm {{ tsm_execute_args }} -f
+  command: ./initialize-tsm {{ tsm_execute_args }} -f -d {{ tableau_data_dir }}
   args:
     chdir: "{{ tsm_packages }}/{{ tsm.stdout }}"
     creates: "{{ tableau_data_dir }}"

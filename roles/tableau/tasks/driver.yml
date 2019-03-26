@@ -1,0 +1,15 @@
+- name: Install Unix ODBC libarary
+  yum: 
+    pkg: unixODBC 
+    state: latest
+  when: ansible_os_family == 'RedHat'
+- name: Install MariaDB ODBC driver
+  unarchive:
+    src: https://downloads.mariadb.com/Connectors/odbc/connector-odbc-3.0.8/mariadb-connector-odbc-3.0.8-ga-rhel7-x86_64.tar.gz
+    dest: /tmp/
+    remote_src: yes
+- name: Copy odbc lib
+  copy: 
+    src: /tmp/lib64/libmaodbc.so 
+    dest: /usr/lib64/libmaodbc.so
+    remote_src: yes
